@@ -1,1 +1,0 @@
-# godot-gimbal-mouse-edge-camera

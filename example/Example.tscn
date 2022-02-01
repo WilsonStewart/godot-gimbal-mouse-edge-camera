@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://checker_floor.gltf" type="PackedScene" id=1]
+[ext_resource path="res://GimbalMouseEdgeCamera.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="checker_floor2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226321, 11.4842, 0.0563562 )
+
+[node name="checker_floor" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995247, -0.0198123, -1.00195 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.0115015, 0.999934, 0, -0.999934, -0.0115015, -0.492655, 10.2403, 0 )
+visible = false
+light_energy = 3.349
+spot_range = 11.8311
+
+[node name="GimbalMouseEdgeCamera" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5897, 6.43354 )
+script = ExtResource( 2 )
+
+[node name="OuterGimbal" type="Spatial" parent="GimbalMouseEdgeCamera"]
+
+[node name="InnerGimbal" type="Spatial" parent="GimbalMouseEdgeCamera/OuterGimbal"]
+
+[node name="Camera" type="Camera" parent="GimbalMouseEdgeCamera/OuterGimbal/InnerGimbal"]
+fov = 75.9375
