@@ -36,14 +36,20 @@ func _process(delta):
 	$RotationHHUD.text = rotation_h_hud_format_string % rotation_h
 	
 	#Update rotation_h
+	var accel = (pow(((mouse_position_h-511.5)/100),3)) * 0.1 * delta
+	rotation_h = accel + (accel * 10)
+	
+	# perform rotation
 	if mouse_position_h < 100 or mouse_position_h > 923:
-		
+		$OuterGimbal.rotation_degrees.y = (rotation_h)
 	else:
-		print("NOOOO ROTATE!")
+		pass
 
 # update the mouse position every time motion is detected
 func update_mouse_position(e):
 	mouse_position_h = e.position.x
 	mouse_position_v = e.position.y
+	var text = rotation_h_hud_format_string % rotation_h
+	print(text)
 	
 	$MousePositionHUD.text = mouse_position_hud_format_string % [mouse_position_h, mouse_position_v]
