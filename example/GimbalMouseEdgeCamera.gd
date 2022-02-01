@@ -1,5 +1,8 @@
 extends Spatial
 
+# feature switches
+var useInertia = false
+
 # mouse
 var mouse_position_h
 var mouse_position_v
@@ -35,9 +38,21 @@ func _input(event):
 func _process(delta):
 	$RotationHHUD.text = rotation_h_hud_format_string % rotation_h
 	
-	# set rotation vars
+	# set rotation vars h
 	if mouse_position_h < mouse_buffer_left:
-	rotation_h = calc_rotation(mouse_position_h, mouse_buffer_left)
+		doRotate_h = true
+		rotation_h = calc_rotation(mouse_position_h, mouse_buffer_left) * delta
+
+	else if mouse_position_h > mouse_buffer_right:
+		doRotate_h = true
+		rotation_h = calc_rotation(mouse_position_h, mouse_buffer_right) * delta
+
+	else:
+		doRotate_h = false
+
+	# Apply rotation
+	if doRotate_h:
+		pass
 	else:
 		if useInertia:
 			apply_inertia()
@@ -53,3 +68,6 @@ func update_mouse_position(e):
 
 func calc_rotation(mouse_position, mouse_buffer):
 	return -pow(mouse_position - mouse_buffer, 3)
+
+func apply_inertia():
+	pass
