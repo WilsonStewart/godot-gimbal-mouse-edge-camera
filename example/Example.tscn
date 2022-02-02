@@ -35,10 +35,47 @@ __meta__ = {
 }
 
 [node name="RotationHHUD" type="Label" parent="GimbalMouseEdgeCamera"]
-margin_left = 1.0
+margin_left = 76.0
 margin_top = 42.0
-margin_right = 354.0
+margin_right = 429.0
 margin_bottom = 77.0
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GimbalMouseEdgeCamera/RotationHHUD"]
+margin_left = -63.0
+margin_top = -2.0
+margin_right = -23.0
+margin_bottom = 12.0
+text = "Rotation H"
+
+[node name="MaxRotHHUD" type="Label" parent="GimbalMouseEdgeCamera"]
+margin_left = 82.0
+margin_top = 91.0
+margin_right = 435.0
+margin_bottom = 126.0
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GimbalMouseEdgeCamera/MaxRotHHUD"]
+margin_left = -65.0
+margin_top = -1.0
+margin_right = -25.0
+margin_bottom = 13.0
+text = "Max roth"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RotationDirectionHHud" type="Label" parent="GimbalMouseEdgeCamera"]
+margin_left = 2.0
+margin_top = 152.0
+margin_right = 355.0
+margin_bottom = 187.0
 custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -17,8 +17,6 @@ var screen_buffer_y = 200
 var mouse_position_h = -1
 var mouse_position_y = -1
 
-var last_rotation_h = 0
-
 var is_currently_rotating_h = false
 
 func _ready():
